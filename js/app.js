@@ -36,3 +36,13 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+// make the cards flip over and show their symbol
+// does not reset after 2 cards are flipped
+// does not check if cards match
+const card = document.getElementsByClassName("card");
+
+for (var i = 0; i < card.length; i++) {
+  card[i].addEventListener("click", function() {
+    this.className += " open show";
+  });
+}
