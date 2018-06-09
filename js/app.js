@@ -36,13 +36,70 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+//make cards flip (not working....yet!!!)
+var card = document.getElementsByClassName('.card');
+var openCard = [];
+var everyCard = document.querySelectorAll('.card');
+
+function click(){
+  everyCard.forEach(function(card){
+    card.addEventListener('click', function(e){
+      openCard.push(card);
+      card.classList.add('open', 'show');
+      //this.className += " open show";
+      //console.log(openCard);
+    })
+  })
+}
+//for (var i = 0; i < card.length; i++) {
+  //card[i].addEventListener("click", function() {
+    //this.className += " open show";
+    //var cardSymbol = card.firstChild.classname;
+    //flippedCards();
+//  });
+//}
+//add flipped cards to array
+//function flippedCards(){
+  //var currentFlippedCards = [];
+  //var addCards = currentFlippedCards.push(cardSymbol);
+  //console.log(currentFlippedCards);
+//}
+//check if cards are matched if 2 cards are flipped
+
+//reset flipped cards if not a matched
+
+//lock flipped cards if matched
+
+//add matched cards to an array
+
+//check if all cards are matched
+
+//show win screen and stats if all cards are matched
+
+//start timer on first click
+
+//stop timer on last click
+
+//star rating
+
+//reset game
+
+
+
+
+
+
+
+
+
+
 // make the cards flip over and show their symbol
 // does not reset after 2 cards are flipped
 // does not check if cards match
-const card = document.getElementsByClassName("card");
+//var card = document.getElementsByClassName("card");
 
-for (var i = 0; i < card.length; i++) {
-  card[i].addEventListener("click", function() {
-    this.className += " open show";
-  });
-}
+//for (var i = 0; i < card.length; i++) {
+  //card[i].addEventListener("click", function() {
+    //this.className += " open show";
+//  });
+//}
