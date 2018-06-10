@@ -49,8 +49,11 @@ function shuffle(allCards) {
 
 deck.addEventListener('click', function(event)  {
   const clickTarget = event.target;
-  if (clickTarget.classList.contains('card') &&
-  openCards.length < 2) {
+  if (
+    clickTarget.classList.contains('card') &&
+    openCards.length < 2 &&
+    !openCards.includes(clickTarget)
+  ) {
     toggleCard(clickTarget);
     addToggleCard(clickTarget);
     if (openCards.length === 2) {
@@ -66,7 +69,6 @@ function toggleCard(card) {
 //add clicked cards to an array
 function addToggleCard(clickTarget){
   openCards.push(clickTarget);
-  console.log(openCards);
 }
 //check if cards are matched if 2 cards are flipped
 function cardMatch() {
