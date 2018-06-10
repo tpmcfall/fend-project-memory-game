@@ -59,9 +59,9 @@ deck.addEventListener('click', function(event)  {
   }
 });
 
-function toggleCard(clickTarget) {
-  clickTarget.classList.toggle('open');
-  clickTarget.classList.toggle('show');
+function toggleCard(card) {
+  card.classList.toggle('open');
+  card.classList.toggle('show');
 }
 //add clicked cards to an array
 function addToggleCard(clickTarget){
@@ -78,7 +78,8 @@ function cardMatch() {
     openCards[1].classList.toggle('match');
     openCards = [];
   } else {
-    console.log('no match!');
+    toggleCard(openCards[0]);
+    toggleCard(openCards[1]);
     openCards = [];
   }
 }
