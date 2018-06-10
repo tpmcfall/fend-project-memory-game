@@ -61,7 +61,16 @@ deck.addEventListener('click', function(event)  {
     }
   }
 });
-
+//check if card is already a matched
+function isClickValid(clickTarget) {
+  return (
+    clickTarget.classList.contains('card') &&
+    !clickTarget.classList.contains('match') &&
+    openCards.length < 2 &&
+    !openCards.includes(clickTarget)
+  )
+}
+//flip cards
 function toggleCard(card) {
   card.classList.toggle('open');
   card.classList.toggle('show');
