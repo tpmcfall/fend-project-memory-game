@@ -78,9 +78,11 @@ function cardMatch() {
     openCards[1].classList.toggle('match');
     openCards = [];
   } else {
-    toggleCard(openCards[0]);
-    toggleCard(openCards[1]);
-    openCards = [];
+    setTimeout(function () {
+      toggleCard(openCards[0]);
+      toggleCard(openCards[1]);
+      openCards = [];
+    }, 1000);
   }
 }
 //reset flipped cards if not a matched
