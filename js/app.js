@@ -45,15 +45,12 @@ function shuffle(allCards) {
  */
  //make cards flip
  const deck = document.querySelector ('.deck');
- let openCards = []
+ let openCards = [];
+ let matchedCards = [];
 
 deck.addEventListener('click', function(event)  {
   const clickTarget = event.target;
-  if (
-    clickTarget.classList.contains('card') &&
-    openCards.length < 2 &&
-    !openCards.includes(clickTarget)
-  ) {
+  if (isClickValid(clickTarget)) {
     toggleCard(clickTarget);
     addToggleCard(clickTarget);
     if (openCards.length === 2) {
@@ -84,11 +81,20 @@ function cardMatch() {
   if (
     openCards[0].firstElementChild.className ===
     openCards[1].firstElementChild.className
-  ) {
+  )
+//lock flipped cards if matched & add to matched array
+  {
+    let firstCard = openCards[0].children[0].classList.value;
+    let secondCard = openCards[1].children[0].classList.value;
+    matchedCards.push(firstCard, secondCard);
     openCards[0].classList.toggle('match');
     openCards[1].classList.toggle('match');
     openCards = [];
-  } else {
+    console.log(matchedCards);
+
+  }
+  //reset flipped cards if not a match
+  else {
     setTimeout(function () {
       toggleCard(openCards[0]);
       toggleCard(openCards[1]);
@@ -96,12 +102,6 @@ function cardMatch() {
     }, 1000);
   }
 }
-//reset flipped cards if not a matched
-
-//lock flipped cards if matched
-
-//add matched cards to an array
-
 //check if all cards are matched
 
 //show win screen and stats if all cards are matched
