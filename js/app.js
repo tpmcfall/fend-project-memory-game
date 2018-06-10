@@ -49,9 +49,13 @@ function shuffle(allCards) {
 
 deck.addEventListener('click', function(event)  {
   const clickTarget = event.target;
-  if (clickTarget.classList.contains('card')){
+  if (clickTarget.classList.contains('card') &&
+  openCards.length < 2) {
     toggleCard(clickTarget);
     addToggleCard(clickTarget);
+    if (openCards.length === 2) {
+      cardMatch();
+    }
   }
 });
 
@@ -65,7 +69,19 @@ function addToggleCard(clickTarget){
   console.log(openCards);
 }
 //check if cards are matched if 2 cards are flipped
-
+function cardMatch() {
+  if (
+    openCards[0].firstElementChild.className ===
+    openCards[1].firstElementChild.className
+  ) {
+    openCards[0].classList.toggle('match');
+    openCards[1].classList.toggle('match');
+    openCards = [];
+  } else {
+    console.log('no match!');
+    openCards = [];
+  }
+}
 //reset flipped cards if not a matched
 
 //lock flipped cards if matched
