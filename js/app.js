@@ -43,34 +43,27 @@ function shuffle(allCards) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
-//make cards flip (not working....yet!!!)
-var card = document.getElementsByClassName('.card');
-var openCard = [];
-var everyCard = document.querySelectorAll('.card');
+ //make cards flip
+ const deck = document.querySelector ('.deck');
+ let openCards = []
 
-function click(){
-  everyCard.forEach(function(card){
-    card.addEventListener('click', function(e){
-      openCard.push(card);
-      card.classList.add('open', 'show');
-      //this.className += " open show";
-      //console.log(openCard);
-    })
-  })
+deck.addEventListener('click', function(event)  {
+  const clickTarget = event.target;
+  if (clickTarget.classList.contains('card')){
+    toggleCard(clickTarget);
+    addToggleCard(clickTarget);
+  }
+});
+
+function toggleCard(clickTarget) {
+  clickTarget.classList.toggle('open');
+  clickTarget.classList.toggle('show');
 }
-//for (var i = 0; i < card.length; i++) {
-  //card[i].addEventListener("click", function() {
-    //this.className += " open show";
-    //var cardSymbol = card.firstChild.classname;
-    //flippedCards();
-//  });
-//}
-//add flipped cards to array
-//function flippedCards(){
-  //var currentFlippedCards = [];
-  //var addCards = currentFlippedCards.push(cardSymbol);
-  //console.log(currentFlippedCards);
-//}
+//add clicked cards to an array
+function addToggleCard(clickTarget){
+  openCards.push(clickTarget);
+  console.log(openCards);
+}
 //check if cards are matched if 2 cards are flipped
 
 //reset flipped cards if not a matched
