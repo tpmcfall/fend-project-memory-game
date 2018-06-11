@@ -90,8 +90,7 @@ function cardMatch() {
     openCards[0].classList.toggle('match');
     openCards[1].classList.toggle('match');
     openCards = [];
-    console.log(matchedCards);
-
+    winGame(matchedCards);
   }
   //reset flipped cards if not a match
   else {
@@ -103,12 +102,18 @@ function cardMatch() {
   }
 }
 //check if all cards are matched
-
+function winGame(matchedCards) {
+  if (matchedCards.length === 16) {
+    console.log('all cards matched!!!');
+  }
+}
 //show win screen and stats if all cards are matched
 
 //start timer on first click
 
 //stop timer on last click
+
+//moves counter
 
 //star rating
 
