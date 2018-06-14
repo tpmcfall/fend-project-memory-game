@@ -47,13 +47,17 @@ function shuffle(allCards) {
  const deck = document.querySelector ('.deck');
  let openCards = [];
  let matchedCards = [];
+ let timerOn = false;
 
 deck.addEventListener('click', function(event)  {
   const clickTarget = event.target;
   if (isClickValid(clickTarget)) {
     toggleCard(clickTarget);
     addToggleCard(clickTarget);
-    setInterval(startTimer, 1000);
+    if (!timerOn) {
+      setInterval(startTimer, 1000);
+      timerOn = true;
+    }
     if (openCards.length === 2) {
       cardMatch();
     }
