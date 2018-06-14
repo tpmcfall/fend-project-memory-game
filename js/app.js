@@ -53,6 +53,7 @@ deck.addEventListener('click', function(event)  {
   if (isClickValid(clickTarget)) {
     toggleCard(clickTarget);
     addToggleCard(clickTarget);
+    setInterval(startTimer, 1000);
     if (openCards.length === 2) {
       cardMatch();
     }
@@ -109,8 +110,25 @@ function winGame(matchedCards) {
 }
 //show win screen and stats if all cards are matched
 
-//start timer on first click
+//start timer on first click(doesnt work yet)
+var minutesLabel = document.getElementById("minutes");
+var secondsLabel = document.getElementById("seconds");
+var totalSeconds = 0;
 
+function startTimer() {
+  ++totalSeconds;
+  secondsLabel.innerHTML = pad(totalSeconds % 60);
+  minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+}
+
+function pad(val) {
+  var valString = val + "";
+  if (valString.length < 2) {
+    return "0" + valString;
+  } else {
+    return valString;
+  }
+}
 //stop timer on last click
 
 //moves counter
