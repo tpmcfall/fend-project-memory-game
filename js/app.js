@@ -61,6 +61,7 @@ deck.addEventListener('click', function(event)  {
     }
     if (openCards.length === 2) {
       cardMatch();
+      addMoves();
     }
   }
 });
@@ -110,6 +111,7 @@ function cardMatch() {
 //check if all cards are matched
 function winGame(matchedCards) {
   if (matchedCards.length === 16) {
+    //stop timer
     clearInterval(timer);
     timer = null;
     console.log('all cards matched!!!');
@@ -136,10 +138,14 @@ function pad(val) {
     return valString;
   }
 }
-//stop timer on last click
-
 //moves counter
+var movesCounter = document.getElementById("moves");
+var moves = 0
 
+function addMoves(){
+  moves += 1;
+  movesCounter.innerHTML = moves;
+}
 //star rating
 
 //reset game
