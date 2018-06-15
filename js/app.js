@@ -48,6 +48,7 @@ function shuffle(allCards) {
  let openCards = [];
  let matchedCards = [];
  let timerOn = false;
+ let timer = null
 
 deck.addEventListener('click', function(event)  {
   const clickTarget = event.target;
@@ -55,7 +56,7 @@ deck.addEventListener('click', function(event)  {
     toggleCard(clickTarget);
     addToggleCard(clickTarget);
     if (!timerOn) {
-      setInterval(startTimer, 1000);
+      timer = setInterval(startTimer, 1000);
       timerOn = true;
     }
     if (openCards.length === 2) {
@@ -109,6 +110,8 @@ function cardMatch() {
 //check if all cards are matched
 function winGame(matchedCards) {
   if (matchedCards.length === 16) {
+    clearInterval(timer);
+    timer = null;
     console.log('all cards matched!!!');
   }
 }
