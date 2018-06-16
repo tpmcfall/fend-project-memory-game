@@ -43,12 +43,38 @@ function shuffle(allCards) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
- //make cards flip
- const deck = document.querySelector ('.deck');
+ const deck = document.querySelector('.deck');
  let openCards = [];
  let matchedCards = [];
  let timerOn = false;
  let timer = null
+ //make cards shuffle even when reset using browser instead of button
+ newGame();
+
+ //remove cards and symbols
+function newGame(){
+  while (deck.firstChild) {
+    deck.removeChild(deck.firstChild);
+  }
+
+  shuffle(allCards);
+
+  allCards.forEach (function createCard(element){
+    //create card
+    const cardClass = document.createElement('li');
+    cardClass.classList.add('card');
+    //create symbol
+    const card = document.createElement('i');
+    let classArray = element.split(' ');
+    let class1 = classArray[0];
+    let class2 = classArray[1];
+    card.classList.add(class1);
+    card.classList.add(class2);
+    //add card and symbol together
+    deck.appendChild(cardClass);
+    cardClass.appendChild(card);
+  })
+}
 
 deck.addEventListener('click', function(event)  {
   const clickTarget = event.target;
@@ -161,5 +187,9 @@ function starRating() {
     stars.removeChild(stars.childNodes[0]);
   }
 }
-
 //reset game
+const restart = document.querySelector('.restart');
+
+restart.addEventListener('click', function(){
+  newGame();
+})
