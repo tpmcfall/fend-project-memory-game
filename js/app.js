@@ -44,11 +44,32 @@ function shuffle(allCards) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
  //make cards flip
- const deck = document.querySelector ('.deck');
+ const deck = document.querySelector('.deck');
  let openCards = [];
  let matchedCards = [];
  let timerOn = false;
  let timer = null
+ newGame();
+
+ //remove card symbols
+function newGame(){
+  while (deck.firstChild) {
+    deck.removeChild(deck.firstChild);
+  }
+
+  shuffle(allCards);
+
+  allCards.forEach (function createCard(element){
+    //create card
+    const cardClass = document.createElement('li');
+    cardClass.classList.add('card');
+    //create symbol
+    const card = document.createElement('i');
+    card.classList.add(element);
+    deck.appendChild(cardClass);
+    cardClass.appendChild(card);
+  })
+}
 
 deck.addEventListener('click', function(event)  {
   const clickTarget = event.target;
@@ -161,5 +182,10 @@ function starRating() {
     stars.removeChild(stars.childNodes[0]);
   }
 }
-
 //reset game
+const restart = document.querySelector('.restart');
+
+restart.addEventListener('click', function(){
+  shuffle(allCards);
+  console.log(allCards);
+})
