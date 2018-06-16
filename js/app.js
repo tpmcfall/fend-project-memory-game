@@ -55,6 +55,7 @@ deck.addEventListener('click', function(event)  {
   if (isClickValid(clickTarget)) {
     toggleCard(clickTarget);
     addToggleCard(clickTarget);
+    starRating();
     if (!timerOn) {
       timer = setInterval(startTimer, 1000);
       timerOn = true;
@@ -147,25 +148,18 @@ function addMoves(){
   movesCounter.innerHTML = moves;
 }
 //star rating
+const stars = document.querySelector('.stars');
+
+function starRating() {
+  if (moves === 11) {
+    stars.removeChild(stars.childNodes[0]);
+  }
+  if (moves === 19) {
+    stars.removeChild(stars.childNodes[0]);
+  }
+  if (moves === 29) {
+    stars.removeChild(stars.childNodes[0]);
+  }
+}
 
 //reset game
-
-
-
-
-
-
-
-
-
-
-// make the cards flip over and show their symbol
-// does not reset after 2 cards are flipped
-// does not check if cards match
-//var card = document.getElementsByClassName("card");
-
-//for (var i = 0; i < card.length; i++) {
-  //card[i].addEventListener("click", function() {
-    //this.className += " open show";
-//  });
-//}
