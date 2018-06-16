@@ -43,20 +43,11 @@ function shuffle(allCards) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
-<<<<<<< HEAD
  const deck = document.querySelector('.deck');
-||||||| merged common ancestors
- //make cards flip
- const deck = document.querySelector ('.deck');
-=======
- //make cards flip
- const deck = document.querySelector('.deck');
->>>>>>> acd41f5172cc55fbb120f927fb7d4dcb1f4925c4
  let openCards = [];
  let matchedCards = [];
  let timerOn = false;
  let timer = null
-<<<<<<< HEAD
  //make cards shuffle even when reset using browser instead of button
  newGame();
 
@@ -84,30 +75,6 @@ function newGame(){
     cardClass.appendChild(card);
   })
 }
-||||||| merged common ancestors
-=======
- newGame();
-
- //remove card symbols
-function newGame(){
-  while (deck.firstChild) {
-    deck.removeChild(deck.firstChild);
-  }
-
-  shuffle(allCards);
-
-  allCards.forEach (function createCard(element){
-    //create card
-    const cardClass = document.createElement('li');
-    cardClass.classList.add('card');
-    //create symbol
-    const card = document.createElement('i');
-    card.classList.add(element);
-    deck.appendChild(cardClass);
-    cardClass.appendChild(card);
-  })
-}
->>>>>>> acd41f5172cc55fbb120f927fb7d4dcb1f4925c4
 
 deck.addEventListener('click', function(event)  {
   const clickTarget = event.target;
@@ -221,18 +188,8 @@ function starRating() {
   }
 }
 //reset game
-<<<<<<< HEAD
 const restart = document.querySelector('.restart');
 
 restart.addEventListener('click', function(){
   newGame();
 })
-||||||| merged common ancestors
-=======
-const restart = document.querySelector('.restart');
-
-restart.addEventListener('click', function(){
-  shuffle(allCards);
-  console.log(allCards);
-})
->>>>>>> acd41f5172cc55fbb120f927fb7d4dcb1f4925c4
