@@ -81,7 +81,7 @@ deck.addEventListener('click', function(event)  {
   if (isClickValid(clickTarget)) {
     toggleCard(clickTarget);
     addToggleCard(clickTarget);
-    starRating();
+    //starRating();
     if (!timerOn) {
       timer = setInterval(startTimer, 1000);
       timerOn = true;
@@ -89,6 +89,7 @@ deck.addEventListener('click', function(event)  {
     if (openCards.length === 2) {
       cardMatch();
       addMoves();
+      starRating();
     }
   }
 });
@@ -177,14 +178,17 @@ function addMoves(){
 const stars = document.querySelector('.stars');
 
 function starRating() {
-  if (moves === 11) {
-    stars.removeChild(stars.childNodes[0]);
+  if (moves === 12) {
+    stars.removeChild(stars.firstElementChild);
+    console.log('remove star!');
   }
-  if (moves === 19) {
-    stars.removeChild(stars.childNodes[0]);
+  if (moves === 20) {
+    stars.removeChild(stars.firstElementChild);
+    console.log('remove star!');
   }
-  if (moves === 29) {
-    stars.removeChild(stars.childNodes[0]);
+  if (moves === 30) {
+    stars.removeChild(stars.firstElementChild);
+    console.log('remove star!');
   }
 }
 //reset game
