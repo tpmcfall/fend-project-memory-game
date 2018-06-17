@@ -191,6 +191,8 @@ function starRating() {
 const restart = document.querySelector('.restart');
 
 restart.addEventListener('click', function(){
+  //reset stars
+  resetStars();
   //stop timer
   clearInterval(timer);
   //reset timer to 0
@@ -205,3 +207,24 @@ restart.addEventListener('click', function(){
   //shuffle cards
   newGame();
 })
+
+function resetStars() {
+  if (moves >= 12) {
+    let li = document.createElement('li');
+    li.classList.add('fa');
+    li.classList.add('fa-star');
+    stars.appendChild(li);
+  }
+  if (moves >= 20) {
+    let li = document.createElement('li');
+    li.classList.add('fa');
+    li.classList.add('fa-star');
+    stars.appendChild(li);
+  }
+  if (moves >= 30) {
+    let li = document.createElement('li');
+    li.classList.add('fa');
+    li.classList.add('fa-star');
+    stars.appendChild(li);
+  }
+}
