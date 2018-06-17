@@ -191,5 +191,17 @@ function starRating() {
 const restart = document.querySelector('.restart');
 
 restart.addEventListener('click', function(){
+  //stop timer
+  clearInterval(timer);
+  //reset timer to 0
+  secondsLabel.innerHTML = '00'
+  minutesLabel.innerHTML = '00'
+  timerOn = false;
+  timer = null;
+  totalSeconds = 0;
+  //reset moves counter
+  moves = 0;
+  movesCounter.innerHTML = moves;
+  //shuffle cards
   newGame();
 })
