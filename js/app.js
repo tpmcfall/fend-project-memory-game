@@ -142,10 +142,14 @@ function winGame(matchedCards) {
     //stop timer
     clearInterval(timer);
     timer = null;
-    console.log('all cards matched!!!');
+    showWin();
   }
 }
 //show win screen and stats if all cards are matched
+function showWin() {
+  const win = document.querySelector('.win-background');
+  win.classList.toggle('hide');
+}
 
 //start timer on first click(doesnt work yet)
 var minutesLabel = document.getElementById("minutes");
@@ -180,15 +184,12 @@ const stars = document.querySelector('.stars');
 function starRating() {
   if (moves === 12) {
     stars.removeChild(stars.firstElementChild);
-    console.log('remove star!');
   }
   if (moves === 20) {
     stars.removeChild(stars.firstElementChild);
-    console.log('remove star!');
   }
   if (moves === 30) {
     stars.removeChild(stars.firstElementChild);
-    console.log('remove star!');
   }
 }
 //reset game
@@ -211,7 +212,7 @@ restart.addEventListener('click', function(){
   //shuffle cards
   newGame();
 })
-
+//add correct number of stars back
 function resetStars() {
   if (moves >= 12) {
     let li = document.createElement('li');

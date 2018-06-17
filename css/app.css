@@ -107,3 +107,58 @@ h1 {
     float: right;
     cursor: pointer;
 }
+/* styles for winning popup*/
+.win-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.438);
+}
+
+.win-content {
+  position: relative;
+  width: 400px;
+  top: 50%;
+  left: 50%;
+  background: #ffffff;
+  transform: translate(-50%, -70%);
+}
+
+.win-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5em;
+  border-bottom: 1px solid gray;
+}
+
+.win-close {
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.win-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
+  border-bottom: 1px solid grey;
+}
+
+.win-buttons {
+  display: flex;
+  justify-content: space-around;
+  padding: 1em;
+}
+
+.win-button {
+  width: 90px;
+  height: 45px;
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
