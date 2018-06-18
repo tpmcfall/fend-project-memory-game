@@ -47,7 +47,7 @@ function shuffle(allCards) {
  let openCards = [];
  let matchedCards = [];
  let timerOn = false;
- let timer = null
+ let timer = null;
  //make cards shuffle even when reset using browser instead of button
  newGame();
 
@@ -149,6 +149,7 @@ function winGame(matchedCards) {
 function showWin() {
   const win = document.querySelector('.win-background');
   win.classList.toggle('hide');
+  winStars();
   winScreenStats();
 }
 
@@ -157,9 +158,28 @@ function winScreenStats() {
   const winTimeMinutes = document.querySelector('#minutes').innerHTML;
   const winTimeSeconds = document.querySelector('#seconds').innerHTML;
   const winMoves = document.querySelector('.win-moves');
+  const winStarsStat = document.querySelector('win-stars');
 
   winTimeStat.innerHTML = 'Time = ' + winTimeMinutes + ':' + winTimeSeconds;
   winMoves.innerHTML = 'Moves = ' + moves;
+  winStarsStat.innerHTML = 'Stars = ' + starCount;
+}
+
+let starCount = 0;
+
+function winStars() {
+  if (moves < 3) {
+    starCount = 3;
+  }
+  if (moves > 2 && moves < 5) {
+    starCount = 2;
+  }
+  if (moves > 4 && moves < 8) {
+    starCount = 1;
+  }
+  else {
+    starcount = 0;
+  }
 }
 
 //start timer on first click(doesnt work yet)
