@@ -87,9 +87,9 @@ deck.addEventListener('click', function(event)  {
       timerOn = true;
     }
     if (openCards.length === 2) {
-      cardMatch();
       addMoves();
       starRating();
+      cardMatch();
     }
   }
 });
@@ -156,9 +156,10 @@ function winScreenStats() {
   const winTimeStat = document.querySelector('.win-time');
   const winTimeMinutes = document.querySelector('#minutes').innerHTML;
   const winTimeSeconds = document.querySelector('#seconds').innerHTML;
+  const winMoves = document.querySelector('.win-moves');
 
   winTimeStat.innerHTML = 'Time = ' + winTimeMinutes + ':' + winTimeSeconds;
-
+  winMoves.innerHTML = 'Moves = ' + moves;
 }
 
 //start timer on first click(doesnt work yet)
