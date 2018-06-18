@@ -138,7 +138,7 @@ function cardMatch() {
 }
 //check if all cards are matched
 function winGame(matchedCards) {
-  if (matchedCards.length === 16) {
+  if (matchedCards.length === 2) {
     //stop timer
     clearInterval(timer);
     timer = null;
@@ -149,6 +149,16 @@ function winGame(matchedCards) {
 function showWin() {
   const win = document.querySelector('.win-background');
   win.classList.toggle('hide');
+  winScreenStats();
+}
+
+function winScreenStats() {
+  const winTimeStat = document.querySelector('.win-time');
+  const winTimeMinutes = document.querySelector('#minutes').innerHTML;
+  const winTimeSeconds = document.querySelector('#seconds').innerHTML;
+
+  winTimeStat.innerHTML = 'Time = ' + winTimeMinutes + ':' + winTimeSeconds;
+
 }
 
 //start timer on first click(doesnt work yet)
