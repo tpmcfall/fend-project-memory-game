@@ -158,7 +158,7 @@ function winScreenStats() {
   const winTimeMinutes = document.querySelector('#minutes').innerHTML;
   const winTimeSeconds = document.querySelector('#seconds').innerHTML;
   const winMoves = document.querySelector('.win-moves');
-  const winStarsStat = document.querySelector('win-stars');
+  const winStarsStat = document.querySelector('.win-stars');
 
   winTimeStat.innerHTML = 'Time = ' + winTimeMinutes + ':' + winTimeSeconds;
   winMoves.innerHTML = 'Moves = ' + moves;
@@ -168,13 +168,13 @@ function winScreenStats() {
 let starCount = 0;
 
 function winStars() {
-  if (moves < 3) {
+  if (moves < 13) {
     starCount = 3;
   }
-  if (moves > 2 && moves < 5) {
+  if (moves > 12 && moves <21) {
     starCount = 2;
   }
-  if (moves > 4 && moves < 8) {
+  if (moves > 20 && moves < 31) {
     starCount = 1;
   }
   else {
