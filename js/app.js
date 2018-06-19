@@ -1,6 +1,3 @@
-/*
- * Create a list that holds all of your cards
- */
 let allCards = ["fa fa-diamond", "fa fa-diamond",
                   "fa fa-paper-plane-o", "fa fa-paper-plane-o",
                   "fa fa-anchor", "fa fa-anchor",
@@ -10,12 +7,6 @@ let allCards = ["fa fa-diamond", "fa fa-diamond",
                   "fa fa-bicycle", "fa fa-bicycle",
                   "fa fa-bomb", "fa fa-bomb"]
 
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(allCards) {
@@ -33,16 +24,6 @@ function shuffle(allCards) {
 }
 
 
-/*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
  const deck = document.querySelector('.deck');
  let openCards = [];
  let matchedCards = [];
@@ -147,10 +128,14 @@ function winGame(matchedCards) {
 }
 //show win screen and stats if all cards are matched
 function showWin() {
-  const win = document.querySelector('.win-background');
-  win.classList.toggle('hide');
+  popUp();
   winStars();
   winScreenStats();
+}
+
+function popUp() {
+  const win = document.querySelector('.win-background');
+  win.classList.toggle('hide');
 }
 
 function winScreenStats() {
@@ -168,19 +153,28 @@ function winScreenStats() {
 let starCount = 0;
 
 function winStars() {
-  if (moves < 13) {
+  if (moves < 16) {
     starCount = 3;
   }
-  if (moves > 12 && moves <21) {
+  if (moves > 15 && moves < 25) {
     starCount = 2;
   }
-  if (moves > 20 && moves < 31) {
+  if (moves > 24 && moves < 31) {
     starCount = 1;
   }
   else {
     starcount = 0;
   }
 }
+
+document.querySelector('.win-replay').addEventListener('click', function () {
+  resetGame();
+  popUp();
+});
+
+document.querySelector('.win-close').addEventListener('click', function () {
+  popUp();
+})
 
 //start timer on first click(doesnt work yet)
 var minutesLabel = document.getElementById("minutes");
@@ -213,10 +207,10 @@ function addMoves(){
 const stars = document.querySelector('.stars');
 
 function starRating() {
-  if (moves === 12) {
+  if (moves === 16) {
     stars.removeChild(stars.firstElementChild);
   }
-  if (moves === 20) {
+  if (moves === 25) {
     stars.removeChild(stars.firstElementChild);
   }
   if (moves === 30) {
@@ -226,23 +220,27 @@ function starRating() {
 //reset game
 const restart = document.querySelector('.restart');
 
-restart.addEventListener('click', function(){
-  //reset stars
-  resetStars();
-  //stop timer
-  clearInterval(timer);
-  //reset timer to 0
-  secondsLabel.innerHTML = '00'
-  minutesLabel.innerHTML = '00'
-  timerOn = false;
-  timer = null;
-  totalSeconds = 0;
-  //reset moves counter
-  moves = 0;
-  movesCounter.innerHTML = moves;
-  //shuffle cards
-  newGame();
-})
+restart.addEventListener('click', function (){
+  resetGame();
+});
+
+  function resetGame() {
+    //reset stars
+    resetStars();
+    //stop timer
+    clearInterval(timer);
+    //reset timer to 0
+    secondsLabel.innerHTML = '00'
+    minutesLabel.innerHTML = '00'
+    timerOn = false;
+    timer = null;
+    totalSeconds = 0;
+    //reset moves counter
+    moves = 0;
+    movesCounter.innerHTML = moves;
+    //shuffle cards
+    newGame();
+  }
 //add correct number of stars back
 function resetStars() {
   if (moves >= 12) {

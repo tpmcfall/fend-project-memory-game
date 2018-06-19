@@ -135,8 +135,8 @@ h1 {
 }
 
 .win-close {
-  font-weight: bold;
   font-size: 2em;
+  cursor: pointer;
 }
 
 .win-stats {
