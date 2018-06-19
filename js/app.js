@@ -1,3 +1,4 @@
+//array of cards to use for shuffle function
 let allCards = ["fa fa-diamond", "fa fa-diamond",
                   "fa fa-paper-plane-o", "fa fa-paper-plane-o",
                   "fa fa-anchor", "fa fa-anchor",
@@ -23,12 +24,20 @@ function shuffle(allCards) {
     return allCards;
 }
 
-
  const deck = document.querySelector('.deck');
  let openCards = [];
  let matchedCards = [];
  let timerOn = false;
  let timer = null;
+ let starCount = 0;
+ var minutesLabel = document.getElementById("minutes");
+ var secondsLabel = document.getElementById("seconds");
+ var totalSeconds = 0;
+ var movesCounter = document.getElementById("moves");
+ var moves = 0;
+ const stars = document.querySelector('.stars');
+ const restart = document.querySelector('.restart');
+
  //make cards shuffle even when reset using browser instead of button
  newGame();
 
@@ -119,7 +128,7 @@ function cardMatch() {
 }
 //check if all cards are matched
 function winGame(matchedCards) {
-  if (matchedCards.length === 2) {
+  if (matchedCards.length === 16) {
     //stop timer
     clearInterval(timer);
     timer = null;
@@ -150,8 +159,6 @@ function winScreenStats() {
   winStarsStat.innerHTML = 'Stars = ' + starCount;
 }
 
-let starCount = 0;
-
 function winStars() {
   if (moves < 16) {
     starCount = 3;
@@ -176,11 +183,7 @@ document.querySelector('.win-close').addEventListener('click', function () {
   popUp();
 })
 
-//start timer on first click(doesnt work yet)
-var minutesLabel = document.getElementById("minutes");
-var secondsLabel = document.getElementById("seconds");
-var totalSeconds = 0;
-
+//start timer on first click
 function startTimer() {
   ++totalSeconds;
   secondsLabel.innerHTML = pad(totalSeconds % 60);
@@ -195,17 +198,14 @@ function pad(val) {
     return valString;
   }
 }
-//moves counter
-var movesCounter = document.getElementById("moves");
-var moves = 0
 
+//moves counter
 function addMoves(){
   moves += 1;
   movesCounter.innerHTML = moves;
 }
-//star rating
-const stars = document.querySelector('.stars');
 
+//star rating
 function starRating() {
   if (moves === 16) {
     stars.removeChild(stars.firstElementChild);
@@ -217,9 +217,8 @@ function starRating() {
     stars.removeChild(stars.firstElementChild);
   }
 }
-//reset game
-const restart = document.querySelector('.restart');
 
+//reset game
 restart.addEventListener('click', function (){
   resetGame();
 });

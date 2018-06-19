@@ -135,8 +135,10 @@ h1 {
 }
 
 .win-close {
-  font-size: 2em;
+  font-weight: bold;
+  font-size: 1em;
   cursor: pointer;
+  color: red;
 }
 
 .win-stats {
