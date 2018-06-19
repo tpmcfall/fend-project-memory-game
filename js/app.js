@@ -166,11 +166,8 @@ function winStars() {
   if (moves > 15 && moves < 25) {
     starCount = 2;
   }
-  if (moves > 24 && moves < 31) {
+  if (moves > 24) {
     starCount = 1;
-  }
-  else {
-    starcount = 0;
   }
 }
 
@@ -213,9 +210,6 @@ function starRating() {
   if (moves === 25) {
     stars.removeChild(stars.firstElementChild);
   }
-  if (moves === 30) {
-    stars.removeChild(stars.firstElementChild);
-  }
 }
 
 //reset game
@@ -237,6 +231,11 @@ restart.addEventListener('click', function (){
     //reset moves counter
     moves = 0;
     movesCounter.innerHTML = moves;
+    //reset matchedCards & openCards array
+    matchedCards = [];
+    openCards = [];
+    //reset starCount
+    starCount = 0
     //shuffle cards
     newGame();
   }

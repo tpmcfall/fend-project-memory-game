@@ -3,11 +3,16 @@
 ## Table of Contents
 
 * [Instructions](#instructions)
+* [Expectations](#expectations)
 * [Acknowledgements](#acknowledgements)
 
 ## Instructions
 
 This is a standard memory game.  Use the mouse to click on any card to start the game.  Try to match the card you flip over with any of the other non-matched cards.  Game is won when all 16 cards are matched. Good Luck!!!
+
+## Expectations
+
+Timer should start when first card is revealed.  Move counter will count up one with each match attempt.  Stars will start at the max of three and will lower down as more moves are used.  Stars will never go below one.  A pop up will come on screen when all cards are matched.  Pop up will display congratulations and give the player the amount of time it took to complete the game.  The number of stars earned. As well as the number of moves.  Game can be reset using the play again button on the pop up or by using the reset button at any point in the game.  Cards will be shuffled for each new game whether the player choses to use the reset button, play again button, or reload page button on their browser. 
 
 ## Acknowledgements
 
