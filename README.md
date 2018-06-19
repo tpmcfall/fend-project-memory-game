@@ -1,20 +1,22 @@
-# Memory Game Project
+# Memory Game
 
 ## Table of Contents
 
 * [Instructions](#instructions)
-* [Contributing](#contributing)
+* [Acknowledgements](#acknowledgements)
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+This is a standard memory game.  Use the mouse to click on any card to start the game.  Try to match the card you flip over with any of the other non-matched cards.  Game is won when all 16 cards are matched. Good Luck!!!
 
-To get started, open `js/app.js` and start building out the app's functionality
+## Acknowledgements
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+This project couldn't have been made without the help of the people and resources below.
 
-## Contributing
+My mentor Alvaro who helped push me in the right direction when I felt overwhelmed looking at the static code and not knowing where to start.  Also assisting me when I got really stuck and finding bugs.
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+Fellow student Matthew Cranford with his blog posts for giving me ideas and suggestions on how to style my code and helping through some of the tricky parts, especially the pop up modal.
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+My fellow students on slack who answered a few questions and gave me support and motivation when I felt overwhelmed or behind.
+
+The websites MDN and w3schools for their easy to understand examples of different types of javascript code.

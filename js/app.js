@@ -30,11 +30,11 @@ function shuffle(allCards) {
  let timerOn = false;
  let timer = null;
  let starCount = 0;
- var minutesLabel = document.getElementById("minutes");
- var secondsLabel = document.getElementById("seconds");
- var totalSeconds = 0;
- var movesCounter = document.getElementById("moves");
- var moves = 0;
+ let minutesLabel = document.getElementById("minutes");
+ let secondsLabel = document.getElementById("seconds");
+ let totalSeconds = 0;
+ let movesCounter = document.getElementById("moves");
+ let moves = 0;
  const stars = document.querySelector('.stars');
  const restart = document.querySelector('.restart');
 
